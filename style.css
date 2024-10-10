@@ -1,0 +1,281 @@
+    /* Apariencia general */
+    html {
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: rgb(238, 238, 238);
+        background: rgb(15, 15, 15);
+    }
+    body {
+        margin: 0;
+    }
+        /* Scrollbars */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgb(90, 90, 90);
+        }
+        ::-webkit-scrollbar-track {
+            background: #292929;
+        }
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+        /* // Scrollbars // */
+
+    /* // Apariencia general // */
+
+    /* Apariencia previsualizar */
+
+    header { background: yellowgreen }
+    nav { background: yellow }
+    .filters { background: rgb(175, 175, 0) }
+    main { background: red }
+
+    /* // Apariencia previsualizar // */
+
+    /* Layout pagina principal */
+
+    body {
+        display: grid;
+        
+        grid-template-columns: 220px auto;
+        grid-template-rows: 80px 40px auto ;
+            
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        grid-template-areas: 
+            "header header"
+            "sidebar filters"
+            "sidebar content";
+    }
+    body header { grid-area: header }
+    .sidebar { grid-area: sidebar }
+    .filters { grid-area: filters }
+    body main {grid-area: content}
+    @media (width < 750px){
+        body {
+            grid-template-areas: 
+            "header header"
+            "filters filters"
+            "content content";
+        }
+        .sidebar{width: 0; height: 0; opacity: 0;}
+    }
+    /* // Layout pagina principal // */
+
+/* Main */
+
+main {
+    /* Grid things */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        
+        align-content: start;
+        justify-content: space-around;
+        gap: 20px;
+        margin-top: 16px;
+    /* // Grid things // */
+    overflow: scroll;
+    padding: 20px;
+    background-color: transparent;
+    
+}
+    
+
+    /* Preview video */
+
+    body .preview {
+        position: relative;
+
+        /* Cambiar style de <a> */
+        color: whitesmoke;
+        text-decoration: none;
+    }
+    
+    .preview .thumb { /* Miniatura video */
+        position: absolute;
+
+        width: 100%;
+        border-radius: 20px;
+
+        transition: all .4s ease;
+    }
+    .preview .thumb:hover {/* Animacion mouse encima preview */
+        opacity: 0;
+    }
+    .preview .video-thumb {/* Preview video */
+        width: 100%;
+        border-radius: 20px;
+    }
+    .preview strong { /* Titulo video */
+        display: block;
+        margin: 8px 10px 0 10px;
+
+        font-size: 15px;
+    }
+    .preview p { /* Stats video */
+        display: block;
+        margin: 10px 15px;
+
+        font-size: 14px;
+        color: rgb(90, 90, 90);
+        font-weight: 400;
+    }
+
+    /* // Preview video // */
+
+/* // Main // */
+
+/* Header */
+    header {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 10px;
+
+        align-items: center;
+
+        margin: 0 10px;
+        background: transparent;
+    }
+    header button {
+        width: 40px;
+        height: 40px;
+        
+        background-color:transparent;
+        border: none;
+
+        color: whitesmoke;
+        font-size: 25px;
+    }
+    header a {
+        height: 75%;
+    }
+    .logo {
+        width: 100%;
+        height: 100%;
+    }
+    header input {
+        flex-grow: 1;
+        flex-shrink: 1;
+        max-width: 600px;
+        min-width: 200px;
+        height: 40px;
+        margin: auto;
+        padding: 0 15px;
+        color: white;
+        font-size: 16px;
+
+        background-color: transparent;
+        border: none;
+        border: solid 1px rgb(90, 90, 90);
+        border-radius: 40px;
+        
+    }
+
+    header img:nth-child(4) {
+        width: 35px;
+        height: 35px;
+        justify-self: flex-end;
+
+        border: solid 1px rgb(90, 90, 90);
+        border-radius: 100%;
+    }
+
+        /* animations */
+        header img:nth-child(2) {
+            cursor: pointer;
+        }
+        header button:hover {
+            background: rgb(70, 70, 70);
+            border-radius: 100%;
+            cursor: pointer;
+        }
+        header button:active {
+            border: solid 1px;
+            background: rgb(104, 104, 104);
+        }
+        header img:nth-child(4):hover {
+            cursor: pointer;
+        }
+        /* // animations // */
+
+/* // Header // */
+
+/* Filters */
+
+    .filters {
+        display: flex;
+        flex-flow: row nowrap;
+
+        align-items: center;
+        gap: 20px;
+        height: auto;
+        padding: 0 20px;
+        background: transparent;
+        overflow: hidden;
+    }
+    .filters div {
+        align-content: center;
+        text-align: center;
+        flex-shrink: 0;
+        height: 35px;
+        padding: 0 10px;
+        background: rgb(63, 63, 63);
+        border-radius: 10px;
+    }
+    .filters div:hover{
+        cursor: pointer;
+        background: rgb(80, 80, 80);
+    }
+
+/* // Filters // */
+
+/* Sidebar */
+
+    .sidebar{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        overflow: scroll;
+
+        background: transparent;
+        border-right: solid 1px rgb(90, 90, 90);
+    }
+    .sidebar > div {
+        flex-shrink: 0;
+        justify-self: center;
+        align-content: center;
+        position: relative;
+
+
+        padding: 5px 0;
+        border-radius: 5px;
+        flex-basis: 35px;
+        width: 80%;
+    }
+    .sidebar > div:first-child {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    .sidebar > section {
+        width: 100%;
+        border-top: solid 1px rgb(90, 90, 90);
+        margin-top: 12px;
+        margin-bottom: 20px;
+        padding: 12px 0 0 30px;
+    }
+    .sidebar > div svg {
+        display: inline-block;
+        width: 30px;
+    }
+    .sidebar > div span{
+        display: inline-block;
+        margin: auto;
+    }
+
+    .sidebar > div:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
