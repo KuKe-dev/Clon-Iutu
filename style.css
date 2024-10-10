@@ -153,7 +153,7 @@ main {
     }
     header a {
         height: 75%;
-        flex-shrink:0;
+        flex-shrink: 0;
     }
     .logo {
         width: 100%;
